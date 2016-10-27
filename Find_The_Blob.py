@@ -95,61 +95,36 @@ def findColorSpot(picture, color):
 # 4-YELLOW
 
 ######################Code Starts Here##################################
-def searchRed (y):
+def search (color,y):
     turnBy(randrange(0,360))
     pic=takePicture()
     pic
     show(pic)
-    x=findColorSpot(pic,1)
+    x=findColorSpot(pic,color)
     print(x)
-    if x > 128: 
+    while x == 0:
+        turnBy(randrange(0,360))
+        pic=takePicture()
+        pic
+        show(pic)
+        x=findColorSpot(pic,color)
+        print(x)   
+    while x > 140:
         turnRight( 1, .1)
-    if x < 128:
+        pic=takePicture()
+        pic 
+        show(pic)
+        x=findColorSpot(pic,color)
+        print(x)
+    while x < 110 and x > 0:
         turnLeft( 1, .1)
-    if x == 128:
-        forward( 1, 1)
-def searchYellow (y):
-    turnBy(randrange(0,360))
-    pic=takePicture()
-    pic
-    show(pic)
-    x=findColorSpot(pic,4)
-    print(x)
-    if x > 128:
-        turnRight( 1, .1)
-    if x < 128:
-        turnLeft( 1, .1)
-    if x == 128:
-        forward( 1, 1)
-def searchBlue (y):
-    turnBy(randrange(0,360))
-    pic=takePicture()
-    pic 
-    show(pic)
-    x=findColorSpot(pic,3)
-    print(x)
-    if x > 128:
-        turnRight( 1, .1)
-    if x < 128:
-        turnLeft( 1, .1)
-    if x == 128:
-        forward( 1, 1)
-def searchGreen (y):
-    turnBy(randrange(0,360))
-    pic=takePicture()
-    pic
-    show(pic)
-    x=findColorSpot(pic,2)
-    print(x)
-    if x > 128:
-        turnRight( 1, .1)
-    if x < 128:
-        turnLeft( 1, .1)
-    if x == 128:
-        forward( 1, 1)
-searchBlue(1)
-searchYellow(1)
-searchRed(1)
-searchGreen(1)
+        pic=takePicture()
+        pic 
+        show(pic)
+        x=findColorSpot(pic,color)
+        print(x)
+    if x > 110 and x < 140:
+        forward( 1, 6)      
+search(randrange(1,4),10)
 
 
